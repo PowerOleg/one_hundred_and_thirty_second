@@ -17,29 +17,55 @@
 
 
 
-<!--Когда <button> не работает, нужно <a th:href></a>-->
+<!--Когда кнопка типа <button>, то не работает, а нужно <a th:href></a>-->
 <div class="container">
     <div class="row">
         <label style="margin-right: 2em" for="button1">Create an user</label>
-        <a id="button1" class="btn btn-primary btn-sm mb-3" th:href="@{/new/}">Create</a>
+        <a id="button1" class="btn btn-primary btn-sm mb-3" th:href="@{/new}">Create</a>
 <!--        <p><a href="/new/">Create user</a></p>-->
     </div>
 </div>
 
-<!--идея что при нажатии срабатывает js и меняется цвет и выводится табличка с объектами-->
+<!--найти конкретного user-->
+
+<br>
+        <form class="form-horizontal" th:action="@{/findOne}" method="post">
+            <label style="margin-left: 7.3em" for="button2">Get the user by name</label>
+            <input type="text" style="margin-right: 2em" name="name" id="button2" placeholder="Enter a name"/>
+            <button type="submit" class="send_btn1">Get</button>
+        </form>
+<br>
+<!--        <a id="button2" class="btn btn-primary btn-sm mb-3"  th:href="@{/findOne(name=${name})}">Find</a>-->
+
+<!--        <button type="submit" id="save" onclick="func1()">Save</button>-->
+
+
+<!--<script>-->
+<!--const func1 = () => {-->
+<!--const name = document.getElementById("name").value;-->
+<!--console.log(`Name: ${name}\n`)-->
+<!--}-->
+<!--</script>-->
+
+<!--<script th:inline="javascript">-->
+<!--$(document).ready(function () {-->
+<!--    var username = [[${appleJuice}]];-->
+<!--    // var username = [(${appleJuice})];-->
+<!--    $('#thinJavascript').replaceWith('<span id="thinJavascript" style="color: #1c7430">' + username + '</span>')-->
+<!--})-->
+<!--</script>-->
+
+
+
+<!--изменить-->
 <div class="container">
     <div class="row">
-        <label style="margin-right: 2em" for="button2">Get All Users</label>
-        <button id="button2" style="btn btn-info" th:onclick="@{/get/}">Get All</button>
+        <label style="margin-right: 2em" for="button3">Update an user</label>
+        <a id="button3" class="btn btn-primary btn-sm mb-3" th:href="@{/user-update}">Update</a>
     </div>
 </div>
 
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <label style="margin-right: 2em" for="button1">Get An User</label>-->
-<!--        <button id="button1" style="btn btn-info" th:onclick="@{/get(id=${'1'})}">Get one</button>-->
-<!--    </div>-->
-<!--</div>-->
+
 
 
 

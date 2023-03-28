@@ -34,7 +34,7 @@ public class UserController {
     }
 
 
-    @GetMapping("new/")
+    @GetMapping("new")
     public String addUser(Model model) {
         User user = new User();
         model.addAttribute("user", user);
@@ -42,10 +42,29 @@ public class UserController {
     }
 
 
-//    это для кнопки
-//    @GetMapping("get/")
-//    public String selectAll(Model model) {
-//        model.addAttribute(userService.getAllUsers);
-//        return "index";
-//    }
+//доделать
+    @PostMapping("findOne")
+    @ResponseBody
+    public String selectAll(@RequestParam String name) {
+        System.out.println(name);
+        return "You requested the parameter " + name;
+    }
+
+
+
+
+    @GetMapping("delete/{id}")
+    public String selectAll(@PathVariable Long id) {
+        userServiceImpl.getById(id);
+        return "redirect:/";
+    }
+
+    //доделать
+    @GetMapping ("user-update" )
+    public String updateUser (User user){
+//        нужно удалить и сохранить видимо, но лучше реализовать нормальный метод ....update из коробки
+//        userServiceImpl.save(user);
+//        return "redirect:/" ;
+        return "update" ;
+    }
 }
