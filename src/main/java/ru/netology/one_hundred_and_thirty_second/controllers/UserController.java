@@ -7,15 +7,16 @@ import org.springframework.web.bind.annotation.*;
 import ru.netology.one_hundred_and_thirty_second.models.User;
 import ru.netology.one_hundred_and_thirty_second.services.UserServiceImpl;
 
-import java.util.Iterator;
 import java.util.List;
 
 @Controller
 @RequestMapping("/")
 public class UserController {
     private UserServiceImpl userServiceImpl;
+
     public UserController() {
     }
+
     @Autowired
     public UserController(UserServiceImpl userServiceImpl) {
         this.userServiceImpl = userServiceImpl;
@@ -48,18 +49,32 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping ("delete/{id}")
-    public String deleteUser (@PathVariable ("id") Long id){
-        userServiceImpl.delete(id) ;
+    @GetMapping("delete/{id}")
+    public String deleteUser(@PathVariable("id") Long id) {
+        userServiceImpl.delete(id);
         return "redirect:/";
     }
-    
-    //доделать
-    @GetMapping ("user-update" )
-    public String updateUser (User user){
-//        нужно удалить и сохранить видимо, но лучше реализовать нормальный метод ....update из коробки
-//        userServiceImpl.save(user);
-//        return "redirect:/" ;
-        return "update" ;
+
+    @GetMapping("update")
+    public String updateUser(User user) {
+        return "update";
+    }
+
+    @PostMapping("/update")
+    public String updateUserForm(@ModelAttribute("user") User user) {
+        List<User> users = userServiceImpl.getAll();
+        users.replaceAll(n -> {
+            if (n.getId().equals(user.getId())) {
+                return user;
+            }
+            return n;
+        });
+
+
+        userServiceImpl.deleteAll();
+        for (User user1 : users) {
+            userServiceImpl.save(user1);
+        }
+        return "redirect:/";
     }
 }

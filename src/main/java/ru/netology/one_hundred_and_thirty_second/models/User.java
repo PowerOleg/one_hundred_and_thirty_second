@@ -11,7 +11,7 @@ import jakarta.persistence.*;
 @Table(name = "users")          //почему без этого умирает?
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType. IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Identity,Auto конфликтует с иницилизацией .sql
     private Long id;
     @Column
     private String name;

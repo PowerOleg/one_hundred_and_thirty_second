@@ -2,32 +2,51 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta cherset="UTF-8">
-    <title>Student Management System</title>
-    <script th:src="@{/js/app/index.js}"></script>
+    <title>Update</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
 </head>
+
 <body>
 <div class="container">
     <div class="row">
-        <h1>Update</h1>
+        <div class="col-lf-6 col-md-6 col-sm-6 container justify-content-center card">
+
+        <h1 style="margin-left: 2em">Update</h1>
+
+
+<div class="card-body">
+<!--было только для чтения-->
+<!--action="#" <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">-->
+
+<form th:action="@{/update}" th:object="${user}" method="post">
+    <div class="form-group">
+    <label for="id">ID</label>
+    <input type="number" th:field="*{id}" class="form-control" id="id" placeholder="ID">
+    </div>
+
+    <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+    <label for="age">Age</label>
+    <input type="text" th:field="*{age}" class="form-control" id="age" placeholder="Age">
+    </div>
+
+    <div class="form-group">
+    <label for="sex">Sex</label>
+    <input type="text" th:field="*{sex}" class="form-control" id="sex" placeholder="Sex">
+    </div>
+
+    <div class="box-footer">
+    <input type="submit" class="btn btn-primary" value="Update User">
+    </div>
+</form>
+</div>
+</div>
     </div>
 </div>
-
-
-<form action="#" th:action="@{/update}" th:object="${user}" method="post">
-    <label for="id">ID</label>
-    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
-    <br/>
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Name">
-    <br/>
-    <label for="age">Age</label>
-    <input type="text" th:field="*{age}" id="age" placeholder="Age">
-    <br/>
-    <input type="submit" value="Update User">
-</form>
-
 </body>
 
 </html>
