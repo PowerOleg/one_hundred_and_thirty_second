@@ -26,13 +26,13 @@
     </div>
 </div>
 
-<!--найти конкретного user-->
 
+<!--найти конкретного user c нужным именем-->
 <br>
         <form class="form-horizontal" th:action="@{/findOne}" method="post">
             <label style="margin-left: 7.3em" for="button2">Get the user by name</label>
-            <input type="text" style="margin-right: 2em" name="name" id="button2" placeholder="Enter a name"/>
-            <button type="submit" class="send_btn1">Get</button>
+            <input type="text" style="margin-right: 2em; color: #1c7430" name="name" id="button2" placeholder="Enter the name"/>
+            <button type="submit" class="btn btn-primary">Get</button>
         </form>
 <br>
 <!--        <a id="button2" class="btn btn-primary btn-sm mb-3"  th:href="@{/findOne(name=${name})}">Find</a>-->
@@ -74,7 +74,7 @@
 
 
 
-<table  style="color: blue" id="each" class="table">
+<table style="color: blue" id="each" class="table">
     <thead>
     <tr>
         <th scope="col">#ID</th>
@@ -92,7 +92,7 @@
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.age}"></td>
                 <td th:text="${user.sex}"></td>
-                    <a href="@{/delete/{id}(id=${user.id})}" class="btn btn-primary">Delete</a>
+                <td><a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-primary">Delete</a></td>
             </tr>
         </table>
 <!--    </div>-->

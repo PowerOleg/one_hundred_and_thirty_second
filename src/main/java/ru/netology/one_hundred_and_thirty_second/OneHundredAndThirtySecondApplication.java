@@ -11,5 +11,4 @@ public class OneHundredAndThirtySecondApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OneHundredAndThirtySecondApplication.class, args);
 	}
-//сделать как в 128 файлы start/populate.sql
 }
