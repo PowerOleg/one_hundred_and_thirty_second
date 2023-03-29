@@ -53,8 +53,7 @@ public class UserController {
         userServiceImpl.delete(id) ;
         return "redirect:/";
     }
-
-//сделать стартерные файлы .sql
+    
     //доделать
     @GetMapping ("user-update" )
     public String updateUser (User user){
