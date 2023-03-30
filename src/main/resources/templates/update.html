@@ -13,11 +13,8 @@
 
         <h1 style="margin-left: 2em">Update</h1>
 
-
 <div class="card-body">
-<!--было только для чтения-->
-<!--action="#" <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">-->
-
+<!--было <input readonly> (только для чтения)-->
 <form th:action="@{/update}" th:object="${user}" method="post">
     <div class="form-group">
     <label for="id">ID</label>
@@ -45,7 +42,7 @@
 </form>
 </div>
 </div>
-    </div>
+</div>
 </div>
 </body>
 

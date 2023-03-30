@@ -2,16 +2,12 @@ package ru.netology.one_hundred_and_thirty_second.models;
 
 import jakarta.persistence.*;
 
-
-
-
-
-
 @Entity
-@Table(name = "users")          //почему без этого умирает?
+@Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //Identity,Auto конфликтует с иницилизацией .sql
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     @Column
     private String name;

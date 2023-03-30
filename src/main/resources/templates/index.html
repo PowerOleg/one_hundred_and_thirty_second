@@ -5,73 +5,35 @@
     <title>Users Home Page</title>
     <script th:src="@{/js/app/index.js}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <h1>Home page</h1>
+        <h1>An User List</h1>
     </div>
 </div>
 
-
-
-
-<!--Когда кнопка типа <button>, то не работает, а нужно <a th:href></a>-->
 <div class="container">
     <div class="row">
         <label style="margin-right: 2em" for="button1">Create an user</label>
         <a id="button1" class="btn btn-primary btn-sm mb-3" th:href="@{/new}">Create</a>
-<!--        <p><a href="/new/">Create user</a></p>-->
     </div>
 </div>
 
-
-<!--найти конкретного user c нужным именем-->
 <br>
         <form class="form-horizontal" th:action="@{/findOne}" method="post">
-            <label style="margin-left: 7.3em" for="button2">Get the user by name</label>
+            <label style="margin-left: 7.3em" for="button2">Find the user in list by name</label>
             <input type="text" style="margin-right: 2em; color: #1c7430" name="name" id="button2" placeholder="Enter the name"/>
-            <button type="submit" class="btn btn-primary">Get</button>
+            <button type="submit" class="btn btn-primary">Search</button>
         </form>
 <br>
-<!--        <a id="button2" class="btn btn-primary btn-sm mb-3"  th:href="@{/findOne(name=${name})}">Find</a>-->
 
-<!--        <button type="submit" id="save" onclick="func1()">Save</button>-->
-
-
-<!--<script>-->
-<!--const func1 = () => {-->
-<!--const name = document.getElementById("name").value;-->
-<!--console.log(`Name: ${name}\n`)-->
-<!--}-->
-<!--</script>-->
-
-<!--<script th:inline="javascript">-->
-<!--$(document).ready(function () {-->
-<!--    var username = [[${appleJuice}]];-->
-<!--    // var username = [(${appleJuice})];-->
-<!--    $('#thinJavascript').replaceWith('<span id="thinJavascript" style="color: #1c7430">' + username + '</span>')-->
-<!--})-->
-<!--</script>-->
-
-
-
-<!--изменить-->
 <div class="container">
     <div class="row">
         <label style="margin-right: 2em" for="button3">Update an user</label>
         <a id="button3" class="btn btn-primary btn-sm mb-3" th:href="@{/update}">Update</a>
     </div>
 </div>
-
-
-
-
-
-
-
-
 
 
 <table style="color: blue" id="each" class="table">
@@ -84,9 +46,6 @@
         <th scope="col">Action</th>
     </tr>
     </thead>
-<!--forEach-->
-<!--<div class="container">-->
-<!--    <div class="row">-->
             <tr th:each="user : ${users}">
                 <td th:text="${user.id}"></td>
                 <td th:text="${user.name}"></td>
@@ -95,11 +54,5 @@
                 <td><a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-primary">Delete</a></td>
             </tr>
         </table>
-<!--    </div>-->
-<!--</div>-->
-
-
 </body>
-<!--<p th:text="'Bonjour, ' + ${attribute1} + '!'"/>-->
-<!--<p th:text="'Дата входа на страницу: ' + ${attribute2}"/>-->
 </html>

@@ -41,6 +41,7 @@ public class UserServiceImpl implements UserService {
     public List<User> getAll() {
         return userRepository.findAll();
     }
+
     @Override
     public void deleteAll() {
         userRepository.deleteAll();
