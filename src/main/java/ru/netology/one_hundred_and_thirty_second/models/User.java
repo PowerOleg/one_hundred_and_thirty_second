@@ -16,7 +16,7 @@ public class User {
     @Column
     private String sex;
 
-//    private List<Auto> autos;
+//    private List<Car> cars;
 
     public User() {
     }

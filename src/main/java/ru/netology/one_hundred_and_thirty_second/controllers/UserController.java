@@ -22,7 +22,6 @@ public class UserController {
         this.userServiceImpl = userServiceImpl;
     }
 
-
     @GetMapping
     public String selectAll(Model model) {
         model.addAttribute("users", userServiceImpl.getAll());
@@ -77,4 +76,5 @@ public class UserController {
         }
         return "redirect:/";
     }
+
 }

@@ -1,6 +1,6 @@
 package ru.netology.one_hundred_and_thirty_second.models;
 
-public class Auto {
+public class Car {
 
     private Long id;
 
