@@ -30,7 +30,18 @@ public class UserController {
 
     @PostMapping
     public String selectAll(@ModelAttribute("user") User user) {
-        userServiceImpl.save(user);
+        //сделано так чтобы id базы данных "H2" догнал id, который создан посредством скрипта resources/database/populate.sql
+        var idFromTable = (long) userServiceImpl.getAll().size();
+        var idLimit = idFromTable + 1;
+        long count = 0L;
+        while (count <= idLimit) {
+            try {
+                userServiceImpl.save(user);
+                Thread.sleep(100);
+            } catch (Exception e) {
+            }
+            count++;
+        }
         return "redirect:/";
     }
 
